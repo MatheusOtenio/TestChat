@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import dados from "./data/data.json";
+require("dotenv").config();
 
 function App() {
   const [input, setInput] = useState("");
@@ -53,7 +54,10 @@ function App() {
       const resText = await res.text();
       try {
         const data = JSON.parse(resText);
-        setResponse(data.choices?.[0]?.message?.content || "Sem resposta.");
+        setResponse(
+          data.choices?.[0]?.message?.content ||
+            "Servidor congestionado. Envie novamente."
+        );
       } catch (error) {
         console.error("Erro ao converter resposta:", resText);
         setResponse("Erro ao interpretar a resposta do servidor.");
