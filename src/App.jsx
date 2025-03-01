@@ -34,7 +34,7 @@ function App() {
                   Responda apenas perguntas sobre ele e suas habilidades. Se a pergunta for fora desse contexto, responda 'Não posso responder essa pergunta.'.`,
       };
 
-      const res = await fetch("http://localhost:5173", {
+      const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
           Authorization:
