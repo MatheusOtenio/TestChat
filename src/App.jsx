@@ -1,14 +1,15 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import dados from "./data/data.json";
-const apiKey = process.env.API_KEY;
+
+const apiKey = import.meta.env.VITE_API_KEY; // Correto para Vite
 
 function App() {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState(
     "Bem-vindo! Pergunte algo sobre Matheus Otenio."
   );
-  const [showChat, setShowChat] = useState(false); // Estado para controlar a exibição do chat
+  const [showChat, setShowChat] = useState(false);
 
   async function sendMessage() {
     if (!input.trim()) {
@@ -39,7 +40,7 @@ function App() {
       const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${apiKey}`, // Corrigido
           "HTTP-Referer":
             "https://test-chat-3zdc-git-main-matheusotenios-projects.vercel.app/",
           "X-Title": "WSP ChatBot",
