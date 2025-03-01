@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import dados from "./data/data.json";
-require("dotenv").config();
+const apiKey = process.env.API_KEY;
 
 function App() {
   const [input, setInput] = useState("");
@@ -39,7 +39,7 @@ function App() {
       const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: process.env.OPENROUTER_API_KEY,
+          Authorization: `Bearer ${apiKey}`,
           "HTTP-Referer":
             "https://test-chat-3zdc-git-main-matheusotenios-projects.vercel.app/",
           "X-Title": "WSP ChatBot",
