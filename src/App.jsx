@@ -1,34 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./App.module.css";
+import dados from "./data/data.json"; // Importação direta do JSON
 
 function App() {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState(
     "Bem-vindo! Pergunte algo sobre Matheus Otenio."
   );
-  const [dados, setDados] = useState(null);
-
-  useEffect(() => {
-    async function carregarDados() {
-      try {
-        const res = await fetch("/src/data/data.json");
-        const data = await res.json();
-        setDados(data);
-      } catch (error) {
-        console.error("Erro ao carregar dados:", error);
-      }
-    }
-    carregarDados();
-  }, []);
 
   async function sendMessage() {
     if (!input.trim()) {
       setResponse("Por favor, insira uma mensagem.");
-      return;
-    }
-
-    if (!dados) {
-      setResponse("Erro ao carregar informações.");
       return;
     }
 
@@ -68,8 +50,14 @@ function App() {
         }),
       });
 
-      const data = await res.json();
-      setResponse(data.choices?.[0]?.message?.content || "Sem resposta.");
+      const resText = await res.text();
+      try {
+        const data = JSON.parse(resText);
+        setResponse(data.choices?.[0]?.message?.content || "Sem resposta.");
+      } catch (error) {
+        console.error("Erro ao converter resposta:", resText);
+        setResponse("Erro ao interpretar a resposta do servidor.");
+      }
     } catch (error) {
       setResponse("Erro: " + error.message);
     }
