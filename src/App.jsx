@@ -58,7 +58,7 @@ function App() {
           Authorization:
             "Bearer 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",
           "HTTP-Referer":
-            "https://test-chat-dq8lowgbg-matheusotenios-projects.vercel.app",
+            "https://test-chat-3zdc-git-main-matheusotenios-projects.vercel.app/",
           "X-Title": "WSP ChatBot",
           "Content-Type": "application/json",
         },
