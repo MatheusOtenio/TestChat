@@ -37,3 +37,28 @@
 .button:hover {
   background-color: #0056b3;
 }
+
+.toggleButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.toggleButton:hover {
+  background-color: #218838;
+}
+
+.chatBox {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background: white;
+  width: 400px;
+  margin: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import styles from "./App.module.css";
-import dados from "./data/data.json"; // Importação direta do JSON
+import dados from "./data/data.json";
 
 function App() {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState(
     "Bem-vindo! Pergunte algo sobre Matheus Otenio."
   );
+  const [showChat, setShowChat] = useState(false); // Estado para controlar a exibição do chat
 
   async function sendMessage() {
     if (!input.trim()) {
@@ -65,20 +66,31 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h2>Chatbot - Matheus Otenio</h2>
-      <div className={styles.chatContainer}>
-        <div className={styles.response}>{response}</div>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Digite sua pergunta..."
-          className={styles.input}
-        />
-        <button onClick={sendMessage} className={styles.button}>
-          Enviar
-        </button>
-      </div>
+      <button
+        onClick={() => setShowChat(!showChat)}
+        className={styles.toggleButton}
+      >
+        Chat
+      </button>
+
+      {showChat && (
+        <div className={styles.chatBox}>
+          <h2>Chatbot - Matheus Otenio</h2>
+          <div className={styles.chatContainer}>
+            <div className={styles.response}>{response}</div>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Digite sua pergunta..."
+              className={styles.input}
+            />
+            <button onClick={sendMessage} className={styles.button}>
+              Enviar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
