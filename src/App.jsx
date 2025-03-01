@@ -38,8 +38,7 @@ function App() {
       const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization:
-            "Bearer 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",
+          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
           "HTTP-Referer":
             "https://test-chat-3zdc-git-main-matheusotenios-projects.vercel.app/",
           "X-Title": "WSP ChatBot",
