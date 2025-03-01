@@ -1,0 +1,23 @@
+{
+  "nome": "Matheus Otenio",
+  "idade": 21,
+  "cargo": "Desenvolvedor Full Stack",
+  "habilidades": [
+    "JavaScript",
+    "Python",
+    "Java",
+    "C#",
+    "SQL",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "ASP.NET"
+  ],
+  "certificacoes": [
+    "Cloud Computing Fundamentals – IBM",
+    "Introduction to Express JS – Simplilearn",
+    "Artificial Intelligence Fundamentals – IBM"
+  ],
+  "idiomas": { "japones": "N1", "ingles": "B2" }
+}
