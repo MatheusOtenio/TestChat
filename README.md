@@ -10,7 +10,7 @@ Este projeto utiliza React + Vite para criar um assistente virtual baseado na AP
 - **API:** Deepseek R1  
 
 ## Imagem do Projeto  
-![Preview](Imagem.png)  
+![Preview](Imagem5.png)  
 
 ---
 
